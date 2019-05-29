@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import SessionForm from './session_form';
 import { connect } from 'react-redux';
 
+
+
 const mapStateToProps = ({ errors }) => {
     return {
         errors: errors.session,
