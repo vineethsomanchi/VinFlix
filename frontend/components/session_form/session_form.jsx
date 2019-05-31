@@ -15,6 +15,7 @@ class SessionForm extends React.Component {
 
     //Invoke proper processForm action (signup/login) with current state on submit
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         this.props.processForm(this.state);
     }
@@ -46,14 +47,14 @@ class SessionForm extends React.Component {
 
                         <form onSubmit={this.handleSubmit} className="actual-form">
 
-                            <div id="inputContainer" class="input-container">
+                            <div id="inputContainer" className="input-container">
                                 <input id="email" type="text" value={this.state.email} onChange={this.update('email')} required />
-                                <label for="email">Email or phone number</label>
+                                <label htmlFor="email">Email or phone number</label>
                             </div>
                             
-                            <div id="inputContainer" class="input-container">
+                            <div id="inputContainer" className="input-container">
                                 <input id="password" type="password" value={this.state.password} onChange={this.update('password')} required />
-                                <label for="password">Password</label>
+                                <label htmlFor="password">Password</label>
                             </div>
 
                             <button className="session-button" onClick={this.handleSubmit}>{this.props.formType}</button>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   #Backend controllers nested under API namespace
   namespace :api, defaults: {format: :json} do
-    resource :user, only: [:create]
+    resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
   end
   
