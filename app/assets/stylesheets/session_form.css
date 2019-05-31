@@ -1,0 +1,121 @@
+.session-container { 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 112vh;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    background: url("session_form_background.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+.session-header {
+    height: 92px;
+}
+
+
+.logo {
+    height: 44px;
+    width: 169px;
+    padding-top: 25px;
+    padding-left: 56px;
+}
+
+.session-body {
+    margin: 0 auto;
+    height: 665px;
+    width: 452px;
+
+    border-radius: 3px;
+    background-color: rgba(0,0,0,.75);
+    color: white;
+}
+
+.form-content {
+    height: 665px;
+    width: 452px;
+    padding: 60px 68px 40px;
+}
+
+.form-content > h1 {
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+
+    margin-bottom: 28px;
+}
+
+.actual-form {
+    color: white;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input-container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: rgb(51, 51, 51);
+    border-radius: 4px;
+    border: 0;
+    
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    
+    height: 50px;
+    width: 315px;
+
+    position: relative;
+    margin-bottom: 16px;
+
+}
+
+.input-container > label {
+    color: #8c8c8c;
+    font-size: 16px;
+    font-family: inherit;
+    padding-left: 16px;
+
+    position: absolute;
+}
+
+
+.input-container > input {
+    border: none;
+    outline: 0;
+    background-color: rgb(51, 51, 51);
+
+    color: rgb(255, 255, 255);
+    font-size: inherit;
+    font-family: inherit;
+
+    padding-left: 16px;
+}
+
+/* .float-container.active label {
+
+} */
+
+
+
+
+
+/* .session-button {
+    height: 50px;
+    width: 315px;
+
+    background: #e50914;
+    border-radius: 4px;
+    border: 0;
+
+    font-size: 16px;
+    font-weight: 700;
+    color: inherit;
+    font-family: inherit;
+} */
