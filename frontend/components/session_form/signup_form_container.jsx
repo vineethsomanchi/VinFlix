@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 const msp = ({ errors }) => ({
     errors: errors.session,
-    formType: 'signup',
+    formType: 'Sign Up',
     link: <Link to="/login">Log In</Link>
 })
 

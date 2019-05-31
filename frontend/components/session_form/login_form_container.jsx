@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 const mapStateToProps = ({ errors }) => {
     return {
         errors: errors.session,
-        formType: 'login',
+        formType: 'Sign Up',
         link: <Link to="/signup">Sign Up</Link>,
     };
 };

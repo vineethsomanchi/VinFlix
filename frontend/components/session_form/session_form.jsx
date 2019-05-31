@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -29,39 +30,42 @@ class SessionForm extends React.Component {
         );
     }
 
-
     render() {
         return (
-            <div className="login-form-container">
-                <form onSubmit={this.handleSubmit} className="login-form-box">
-                    Welcome to VinFlix!
-          <br />
-                    Please {this.props.formType} or {this.props.navLink}
-                    {this.renderErrors()}
-                    <div className="login-form">
-                        <br />
-                        <label>Username:
-              <input type="text"
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                                className="login-input"
-                            />
-                        </label>
-                        <br />
-                        <label>Password:
-              <input type="password"
-                                value={this.state.password}
-                                onChange={this.update('password')}
-                                className="login-input"
-                            />
-                        </label>
-                        <br />
-                        <input className="session-submit" type="submit" value={this.props.formType} />
+            <div className="session-container">
+                
+                <div className="session-header">
+                    <Link to="/"><img src={window.logo} className="logo" /></Link>
+                </div>
+
+                <div className="session-body">
+
+                    <div className="form-content">
+
+                        <h1>{this.props.formType}</h1>
+
+                        <form onSubmit={this.handleSubmit} className="actual-form">
+
+                            <div id="inputContainer" class="input-container">
+                                <input id="email" type="text" value={this.state.email} onChange={this.update('email')} required />
+                                <label for="email">Email or phone number</label>
+                            </div>
+                            
+                            <div id="inputContainer" class="input-container">
+                                <input id="password" type="password" value={this.state.password} onChange={this.update('password')} required />
+                                <label for="password">Password</label>
+                            </div>
+
+                            <button className="session-button" onClick={this.handleSubmit}>{this.props.formType}</button>
+                            
+                        </form>
+                        
                     </div>
-                </form>
+                </div>
             </div>
         );
-    }
+    }    
 }
 
 export default SessionForm;
+
