@@ -6,18 +6,24 @@ import { connect } from 'react-redux';
 
 
 
-const mapStateToProps = ({ errors }) => {
+const msp = ({ errors }) => {
     return {
-        errors: errors.session,
-        formType: 'Sign Up',
-        link: <Link to="/signup">Sign Up</Link>,
+        errors: errors.session || [],
+        formType: 'Sign In',
+        otherForm: <Link to="/signup">Sign up now.</Link>,
     };
 };
 
-const mapDispatchToProps = dispatch => {
+const mdp = dispatch => {
     return {
         processForm: (user) => dispatch(login(user)),
+
+        switchForm: () => (
+            <label>New to Netflix?</label>
+        ),
+
+        deleteErrors: () => dispatch(deleteErrors())
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+export default connect(msp, mdp)(SessionForm);

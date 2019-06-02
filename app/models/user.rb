@@ -12,6 +12,8 @@
 
 class User < ApplicationRecord
   validates :email, :password_digest, :session_token, presence: true
+  validates :email, :password, uniqueness: true
+  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i, on: :create } #Uses regex to validate email format
   validates :password, length: { minimum: 4, allow_nil: true }
 
   attr_reader :password
