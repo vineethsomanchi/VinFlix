@@ -8,7 +8,7 @@ import { signup, deleteErrors } from '../../actions/session_actions';
 const msp = ({ errors }) => ({
     errors: errors.session || [],
     formType: 'Sign Up',
-    link: <Link to="/login">Sign in.</Link>
+    otherForm: <Link to="/login" className="other-form">Sign in.</Link>
 })
 
 const mdp = (dispatch) => ({

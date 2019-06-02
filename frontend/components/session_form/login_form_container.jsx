@@ -12,7 +12,7 @@ const msp = ({ errors }) => {
     return {
         errors: errors.session || [],
         formType: 'Sign In',
-        otherForm: <Link to="/signup">Sign up now.</Link>,
+        otherForm: <Link to="/signup" className="other-form">Sign up now.</Link>,
     };
 };
 
@@ -21,7 +21,7 @@ const mdp = dispatch => {
         processForm: (user) => dispatch(login(user)),
 
         switchForm: () => (
-            <label>New to Netflix?</label>
+            <label>New to Netflix?  </label>
         ),
 
         deleteErrors: () => dispatch(deleteErrors())

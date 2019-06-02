@@ -43,8 +43,6 @@ class SessionForm extends React.Component {
             
             //Changes state for any non-error inputs
             this.setState( {[field]: e.target.value} )
-
-
         }
     }
 
@@ -65,12 +63,19 @@ class SessionForm extends React.Component {
         })
 
         //Sets input-class based on if there are errors or not
-        let inputClass = "";
+        let emailClass = "";
+        let passwordClass = "";
 
         if(this.state.emailErrors) {
-            inputClass = "form-input-error";
+            emailClass = "email-error";
         } else {
-            inputClass = "form-input";
+            emailClass = "email-input";
+        }
+
+        if (this.state.passwordErrors) {
+            passwordClass = "password-error";
+        } else {
+            passwordClass = "password-input";
         }
 
         return (
@@ -90,15 +95,15 @@ class SessionForm extends React.Component {
 
                             {renderErrors}
 
-                            <div id="inputContainer" className={inputClass}>
-                                <input id="email" type="text" value={this.state.email} onChange={this.update('email')} required />
-                                <label htmlFor="email">Email or phone number</label>
+                            <div id="inputContainer" className={emailClass}>
+                                <input id="email" type="text" value={this.state.email} onChange={this.update('email')} className="input"/>
+                                <label htmlFor="email" className="label">Email or phone number</label>
                             </div>
                             <div className="form-errors">{this.state.emailErrors}</div>
                             
-                            <div id="inputContainer" className={inputClass}>
-                                <input id="password" type="password" value={this.state.password} onChange={this.update('password')} required />
-                                <label htmlFor="password">Password</label>
+                            <div id="inputContainer" className={passwordClass}>
+                                <input id="password" type="password" value={this.state.password} onChange={this.update('password')} className="input"/>
+                                <label htmlFor="password" className="label">Password</label>
                             </div>
                             <div className="form-errors">{this.state.passwordErrors}</div>
 
@@ -106,6 +111,28 @@ class SessionForm extends React.Component {
                             
                         </form>
                         
+
+                        <div className="form-middle">
+                            
+                           
+                            <div className="remember">
+                                <input type="checkbox" className="checkbox"/>
+                                <label className="remember-me"> Remember me</label>
+                            </div>
+
+                            <Link to="/" className="need-help"> <label className="need-help">Need help?</label></Link>
+
+                        </div>
+
+
+                        <div className="form-footer">
+                        
+                            <label className="switch-form">{this.props.switchForm()}</label>
+
+                            {this.props.otherForm}
+
+                        </div>
+
                     </div>
                 </div>
             </div>
