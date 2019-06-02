@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { SSL_OP_NO_QUERY_MTU } from 'constants';
+
+import Footer from "../footer"
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -135,6 +136,8 @@ class SessionForm extends React.Component {
 
                     </div>
                 </div>
+
+                <Footer/>
             </div>
         );
     }    
