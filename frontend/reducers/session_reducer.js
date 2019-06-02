@@ -11,7 +11,7 @@ const sessionReducer = (oldState = _nullUser, action) => {
 
         //Sets id to current user ID
         case RECEIVE_CURRENT_USER:
-            return merge({}, state, { id: action.currentUser.id });
+            return merge({}, oldState, { id: action.currentUser.id });
             // return { id: action.currentUser.id };
 
         //Sets id to null

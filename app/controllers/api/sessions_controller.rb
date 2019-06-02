@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
         
         if @user
             login(@user)
-            render :show
+            render 'api/users/show'
         else
             render json: ["Sorry, we can't find an account with this email address. Please try again or create a new account."], status: 401 #Unauthorized
         end
