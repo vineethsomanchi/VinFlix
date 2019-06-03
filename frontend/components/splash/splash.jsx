@@ -2,10 +2,15 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom';
 
 class Splash extends React.Component {
+    constructor(props) {
+        super(props)
+        this.demo = this.demo.bind(this)
+    }
 
     demo(e) {
+
         e.preventDefault();
-        this.props.demoLogin( {email: "demo@gmail.com", password: "demo"} )
+        this.props.demoLogin({ email: "demo@gmail.com", password: "demo" }).then(() => this.props.history.push('/browse'));
     }
 
     render () {

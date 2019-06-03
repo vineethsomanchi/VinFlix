@@ -49,7 +49,7 @@ class SessionForm extends React.Component {
     //Invoke proper processForm action (signup/login) with current state on submit
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state);
+        this.props.processForm(this.state).then(() => this.props.history.push('/browse'));
     }
 
 
