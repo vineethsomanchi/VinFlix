@@ -78,80 +78,82 @@ class SessionForm extends React.Component {
         }
 
         return (
-            <>
-                <div className="session-header">
-                    <Link to="/"><img src={window.logo} className="session-logo" /></Link>
-                </div>
-
-                <div className="session-body">
-                    <div className="form-content">
-
-
-                        <h1>{this.props.formType}</h1>
-
-
-                        <form className="actual-form">
-
-                            {renderErrors}
-
-                            <div id="inputContainer" className={emailClass}>
-                                <input id="email" type="text" value={this.state.email} onChange={this.update('email')} className="input"/>
-                                <label htmlFor="email" className="label">Email or phone number</label>
-                            </div>
-                            <div className="form-errors">{this.state.emailErrors}</div>
-                            
-                            <div id="inputContainer" className={passwordClass}>
-                                <input id="password" type="password" value={this.state.password} onChange={this.update('password')} className="input"/>
-                                <label htmlFor="password" className="label">Password</label>
-                            </div>
-                            <div className="form-errors">{this.state.passwordErrors}</div>
-
-                            <button className="session-button" onClick={this.handleSubmit}>{this.props.formType}</button>
-                            
-                        </form>
-                        
-
-                        <div className="form-middle">
-                    
-                            <div className="remember">
-                                <input type="checkbox" className="checkbox"/>
-                                <label className="remember-me"> Remember me</label>
-                            </div>
-
-                            <Link to="/" className="need-help"> <label className="need-help">Need help?</label></Link>
-
-                        </div>
-
-
-                        <div className="form-footer">
-                        
-                            <label className="switch-form">{this.props.switchForm()}</label>
-
-                            {this.props.otherForm}
-
-                        </div>
-
+            <div className= "session-main">
+                <div className = "session-container">
+                    <div className="session-header">
+                        <Link to="/"><img src={window.logo} className="session-logo" /></Link>
                     </div>
-                </div>
 
-                <div className="footer-container">
-                    <div className="footer-content">
-                        <div className="footer-header-container">
-                            <label className="footer-header">Questions? Email VineethSomanchi@gmail.com</label>
-                        </div>
+                    <div className="session-body">
+                        <div className="form-content">
 
-                        <div className="icon-container">
-                            <a href="https://www.linkedin.com/in/vineethsomanchi/"><i className="fab fa-linkedin fa-5x"></i></a>
-                            <a href="https://github.com/vineethsomanchi"><i className="fab fa-github fa-5x"></i></a>
-                            <a href="https://twitter.com/vineethsomanchi"><i className="fab fa-twitter fa-5x"></i></a>
-                        </div>
 
-                        <div className="end-container">
-                            <label className="copyright">Recreation by Vineeth Somanchi ©</label>
+                            <h1>{this.props.formType}</h1>
+
+
+                            <form className="actual-form">
+
+                                {renderErrors}
+
+                                <div id="inputContainer" className={emailClass}>
+                                    <input id="email" type="text" value={this.state.email} onChange={this.update('email')} className="input"/>
+                                    <label htmlFor="email" className="label">Email or phone number</label>
+                                </div>
+                                <div className="form-errors">{this.state.emailErrors}</div>
+                                
+                                <div id="inputContainer" className={passwordClass}>
+                                    <input id="password" type="password" value={this.state.password} onChange={this.update('password')} className="input"/>
+                                    <label htmlFor="password" className="label">Password</label>
+                                </div>
+                                <div className="form-errors">{this.state.passwordErrors}</div>
+
+                                <button className="session-button" onClick={this.handleSubmit}>{this.props.formType}</button>
+                                
+                            </form>
+                            
+
+                            <div className="form-middle">
+                        
+                                <div className="remember">
+                                    <input type="checkbox" className="checkbox"/>
+                                    <label className="remember-me"> Remember me</label>
+                                </div>
+
+                                <Link to="/" className="need-help"> <label className="need-help">Need help?</label></Link>
+
+                            </div>
+
+
+                            <div className="form-footer">
+                            
+                                <label className="switch-form">{this.props.switchForm()}</label>
+
+                                {this.props.otherForm}
+
+                            </div>
+
                         </div>
                     </div>
-                </div> 
-            </>
+
+                    <div className="footer-container">
+                        <div className="footer-content">
+                            <div className="footer-header-container">
+                                <label className="footer-header">Questions? Email VineethSomanchi@gmail.com</label>
+                            </div>
+
+                            <div className="icon-container">
+                                <a href="https://www.linkedin.com/in/vineethsomanchi/"><i className="fab fa-linkedin fa-5x"></i></a>
+                                <a href="https://github.com/vineethsomanchi"><i className="fab fa-github fa-5x"></i></a>
+                                <a href="https://twitter.com/vineethsomanchi"><i className="fab fa-twitter fa-5x"></i></a>
+                            </div>
+
+                            <div className="end-container">
+                                <label className="copyright">Recreation by Vineeth Somanchi ©</label>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
         );
     }    
 }
