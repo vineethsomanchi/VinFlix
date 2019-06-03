@@ -1,11 +1,18 @@
-.background { 
-    height: 111vh;
-    width: 100%;
+body { 
+    height: 100vh;
+    width: 100vh;
     min-height: 100%;
     min-width: 100%;
     background-image: image-url("splash_background.png");
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: scroll;
+}
+
+.splash-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .splash-header {
@@ -101,7 +108,9 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 200px;
 }
+
 .have-an-account {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -125,3 +134,77 @@
 
 
 
+
+.splash-footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    height: 50%;
+    width: 100%;
+
+    background: radial-gradient(rgba(32, 31, 31, 0.9), rgba(0,0,0,0.925));
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover; 
+}
+
+.splash-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 236px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #999;
+}
+
+.splash-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-top: 30px;
+    width: 100%;
+    height: 20%;
+}
+
+.splash-header {
+    font-family: inherit;
+    font-size: 16px;
+    color: #999;
+}
+
+.splash-icon-container {
+    width: 100%;
+    height: 40%;
+    color: #999;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.fa-linkedin {
+    color: #999;
+}
+
+.fa-github {
+    color: #999;
+}
+
+.fa-twitter {
+    color: #999;
+}
+
+.splash-end-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 11px;
+    width: 100%;
+    height: 20%;
+    font-family: inherit;
+    font-size: 12px;
+    color: #999;
+}
