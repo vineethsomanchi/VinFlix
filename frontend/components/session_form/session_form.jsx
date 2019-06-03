@@ -81,63 +81,66 @@ class SessionForm extends React.Component {
 
         return (
             <div className="session-container">
-                
-                <div className="session-header">
-                    <Link to="/"><img src={window.logo} className="logo" /></Link>
-                </div>
+                <div className="position-relative">
 
-                <div className="session-body">
+                    <div className="session-header">
+                        <Link to="/"><img src={window.logo} className="logo" /></Link>
+                    </div>
 
-                    <div className="form-content">
+                    <div className="session-body">
+                        <div className="form-content">
 
-                        <h1>{this.props.formType}</h1>
 
-                        <form className="actual-form">
+                            <h1>{this.props.formType}</h1>
 
-                            {renderErrors}
 
-                            <div id="inputContainer" className={emailClass}>
-                                <input id="email" type="text" value={this.state.email} onChange={this.update('email')} className="input"/>
-                                <label htmlFor="email" className="label">Email or phone number</label>
-                            </div>
-                            <div className="form-errors">{this.state.emailErrors}</div>
+                            <form className="actual-form">
+
+                                {renderErrors}
+
+                                <div id="inputContainer" className={emailClass}>
+                                    <input id="email" type="text" value={this.state.email} onChange={this.update('email')} className="input"/>
+                                    <label htmlFor="email" className="label">Email or phone number</label>
+                                </div>
+                                <div className="form-errors">{this.state.emailErrors}</div>
+                                
+                                <div id="inputContainer" className={passwordClass}>
+                                    <input id="password" type="password" value={this.state.password} onChange={this.update('password')} className="input"/>
+                                    <label htmlFor="password" className="label">Password</label>
+                                </div>
+                                <div className="form-errors">{this.state.passwordErrors}</div>
+
+                                <button className="session-button" onClick={this.handleSubmit}>{this.props.formType}</button>
+                                
+                            </form>
                             
-                            <div id="inputContainer" className={passwordClass}>
-                                <input id="password" type="password" value={this.state.password} onChange={this.update('password')} className="input"/>
-                                <label htmlFor="password" className="label">Password</label>
-                            </div>
-                            <div className="form-errors">{this.state.passwordErrors}</div>
 
-                            <button className="session-button" onClick={this.handleSubmit}>{this.props.formType}</button>
-                            
-                        </form>
+                            <div className="form-middle">
                         
+                                <div className="remember">
+                                    <input type="checkbox" className="checkbox"/>
+                                    <label className="remember-me"> Remember me</label>
+                                </div>
 
-                        <div className="form-middle">
-                            
-                           
-                            <div className="remember">
-                                <input type="checkbox" className="checkbox"/>
-                                <label className="remember-me"> Remember me</label>
+                                <Link to="/" className="need-help"> <label className="need-help">Need help?</label></Link>
+
                             </div>
 
-                            <Link to="/" className="need-help"> <label className="need-help">Need help?</label></Link>
+
+                            <div className="form-footer">
+                            
+                                <label className="switch-form">{this.props.switchForm()}</label>
+
+                                {this.props.otherForm}
+
+                            </div>
 
                         </div>
-
-
-                        <div className="form-footer">
-                        
-                            <label className="switch-form">{this.props.switchForm()}</label>
-
-                            {this.props.otherForm}
-
-                        </div>
-
                     </div>
                 </div>
-
+                
                 <Footer/>
+
             </div>
         );
     }    
