@@ -3,7 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-#Addede jquery rails to production scope
+#Add Amazon S3 service
+gem 'aws-sdk-s3'
+# Add jquery rails to production scope
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

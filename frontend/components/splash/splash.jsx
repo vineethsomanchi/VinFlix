@@ -10,7 +10,7 @@ class Splash extends React.Component {
     demo(e) {
 
         e.preventDefault();
-        this.props.demoLogin({ email: "demo@gmail.com", password: "demo" }).then(() => this.props.history.push('/browse'));
+        this.props.demoLogin({ email: "demo@appacademy.io", password: "demo" }).then(() => this.props.history.push('/browse'));
     }
 
     render () {
