@@ -18,7 +18,7 @@ class Splash extends React.Component {
             <div className="splash-main">
                 <div className="splash-container"> 
                     <div className="splash-header">
-                        <Link to="/"><img src={window.logo} className="splash-logo" /></Link>
+                        <Link to="/"><img src={window.logo} className="splash-logo"/></Link>
 
                         <Link to="/login"><button className="splash-signin">Sign In</button></Link>   
                     </div>
@@ -40,7 +40,7 @@ class Splash extends React.Component {
                     <div className="splash-footer-container">
                         <div className="splash-content">
                             <div className="splash-header-container">
-                                <label className="splash-header">Questions? Email VineethSomanchi@gmail.com</label>
+                                <label className="splash-footer-header">Questions? Email VineethSomanchi@gmail.com</label>
                             </div>
 
                             <div className="splash-icon-container">

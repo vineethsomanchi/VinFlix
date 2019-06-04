@@ -1,5 +1,5 @@
 .splash-main { 
-    height: 100vh;
+    height: 107vh;
     width: 100vw;
     min-height: 100%;
     min-width: 100%;
@@ -156,8 +156,8 @@
     height: 236px;
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
-    background: none;
-    background: black;
+    // background: black;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.925));
     color: #999;
 }
 
@@ -171,7 +171,7 @@
     height: 20%;
 }
 
-.splash-header {
+.splash-footer--header {
     font-family: inherit;
     font-size: 16px;
 }

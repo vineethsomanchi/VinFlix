@@ -1,5 +1,5 @@
 .session-main {  
-    height: 125vh;
+    height: 150vh;
     width: 100vw;
     min-height: 100%;
     min-width: 100%;
@@ -48,6 +48,7 @@
     width: 452px;
     padding: 60px 68px 40px;
     margin-bottom: 90px;
+    border-radius: 3px;
     box-sizing: border-box;
 }
 
@@ -102,7 +103,7 @@
     width: 315px;
 
     position: relative;
-    margin-bottom: 16px;
+    margin-bottom: -5px;
 }
 
 .password-input {
@@ -148,6 +149,7 @@
     height: 46px;
     padding-left: 16px;
     padding-top: 12px;
+    border-radius: 4px;
     cursor: auto;
 }
 
@@ -156,6 +158,7 @@
     font-size: 11px;
     padding-bottom: 22px;
 }
+
 
 .email-error {
     display: flex;

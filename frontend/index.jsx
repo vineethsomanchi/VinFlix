@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-import { signup, login, logout } from './actions/session_actions';
+import { fetchVideos, fetchVideo } from './actions/video_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -25,10 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore();
     }
 
+
+    let video = {title: "Vinny's day off", year: 2019, maturity_rating: "NC-17", runtime: "a minute", description: "vinny sleeps all day", my_list: true}
+    //For testing 
+    window.video = video;
     window.store = store;
-    window.logout = logout;
-    window.login = login;
-    window.signup = signup;
+    window.fetchVideos = fetchVideos;
+    window.fetchVideo = fetchVideo;
     
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root);

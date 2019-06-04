@@ -20,6 +20,7 @@
 
 class Video < ApplicationRecord
     validates :title, :year, :maturity_rating, :runtime, :description, :my_list, presence: true
+    validates :title, unique: true
     has_one_attached :video_link
     has_one_attached :image_link
 end

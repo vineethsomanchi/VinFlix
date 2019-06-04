@@ -3,12 +3,16 @@ class Api::VideosController < ApplicationController
     
     def index
         @videos = Video.all
-        # @videos = Video.where("title ILIKE ?", "%#{params[:title]}%")
         render :index
     end 
 
     def show
         @video = Video.find(params[:id])
+        debugger
         render :show
     end
 end
+
+
+
+# @videos = Video.where("title ILIKE ?", "%#{params[:title]}%")

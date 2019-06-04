@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavBar from '../nav/nav_container'
 
 class VideoIndex extends React.Component {
     render() {
         return (
-            <>
-                <h1>You made it to the browse page</h1>
-                <p>Rejoice you peasant</p>     
-                <button onClick={this.props.logout}>Log Out!</button>    
-            </>
+            <div className="video-index-container">
+                <NavBar />
+            </div>
         )
     }
 }
