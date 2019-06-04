@@ -5,8 +5,6 @@ import Root from './components/root';
 
 import { signup, login, logout } from './actions/session_actions';
 
-let a = 5;
-
 document.addEventListener('DOMContentLoaded', () => {
     let store;
 
