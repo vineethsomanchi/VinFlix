@@ -6,7 +6,7 @@ import { Route, Redirect, withRouter } from 'react-router-dom';
 //If logged_in render splash page
 //If not logged_in render session component
 const Auth = ( { component: Component, path, logged_in, exact } ) => (
-    <Route path={path} exact={exact} render={(props) => (!logged_in ? (<Component {...props} />) : (<Redirect to="/" />))} />
+    <Route path={path} exact={exact} render={(props) => (!logged_in ? (<Component {...props} />) : (<Redirect to="/browse" />))} />
 );
 
 //If logged_in render component
