@@ -1,10 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 class NavBar extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {top: false}
+    }
+    
+    componentDidMount() {
+        window.onscroll = () => {
+            if (window.pageYOffset <= 20) {
+                this.setState({top: true})
+            } else {
+                this.setState({top: false})
+            }
+        };
+    }
+
+    componentWillUnmount() {
+        window.onscroll = null;
+    }
+
     render () {
+
+        let navContainerClass = (this.state.top ? "nav-container-opaque" : "nav-container-transparent")
+
         return (
-            <nav className="nav-container">
+            <nav className={navContainerClass}>
                 
                 <div className="left-nav">
                     <Link to="/browse" className="nav-logo-container"><img src={window.logo} className="nav-logo" /></Link>

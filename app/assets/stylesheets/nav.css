@@ -1,4 +1,4 @@
-.nav-container {
+.nav-container-opaque {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -6,6 +6,24 @@
     width: 100%;
     height: 9%;
     background: rgb(20, 20, 20);
+    position: fixed;
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+}
+
+.nav-container-transparent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    height: 9%;
+    background: none;
+    position: fixed;
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
 }
 
 .left-nav {

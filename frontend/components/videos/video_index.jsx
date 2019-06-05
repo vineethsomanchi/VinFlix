@@ -6,7 +6,7 @@ class VideoIndex extends React.Component {
     render() {
         return (
             <div className="video-index-container">
-                <NavBar />
+                <NavBar/>
             </div>
         )
     }
