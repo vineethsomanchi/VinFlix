@@ -34,9 +34,7 @@ class FeaturedVideo extends React.Component {
         return (
             <div className="featured-video-container">
                 
-                <video id="featured" className="featured-video" loop autoPlay>
-                    <source src={this.props.video.video_link} type="video/mp4"/>
-                </video>
+                <video id="featured" className="featured-video" src={this.props.video.video_link} loop autoPlay ></video>
                 
                 
                 <div className="left-featured-container">
