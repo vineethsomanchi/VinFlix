@@ -1,4 +1,4 @@
 json.extract! video, :id, :title, :year, :maturity_rating, :runtime, :description
 
-json.video_link video.movie.service_url
-json.image_link video.thumbnail.service_url
+json.video_link url_for(video.movie)
+json.image_link url_for(video.thumbnail)
