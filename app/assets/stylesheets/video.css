@@ -1,0 +1,89 @@
+.vid {
+    background-color: black;
+    width: 18.3%;
+    height: 78%;
+    position: relative;
+}
+
+.v1:hover {
+    height: 21%;
+    width: 80%;
+    transform: translate3d(109px, 0px, 0px);
+    transition-duration: 400ms;
+    transition-delay: 0ms;
+}
+
+.v1:hover ~.v2, .v3, .v4 {
+    transform: translate3d(219px, 0px, 0px);
+    transition-duration: 400ms;
+    transition-delay: 0ms;
+}
+
+
+
+
+/* .individual-video-container:hover {
+    background-color: brown;
+    transform: translate3d(109px, 0px, 0px);
+    transition-duration: 400ms;
+    transition-delay: 0ms;
+}
+
+.v1:hover ~ .v2, .v3 {
+
+.v1 {
+    height: 20%;
+    width: 20%;
+    position: relative;
+    background-color: black;
+}
+
+.v2 {
+    height: 20%;
+    width: 20%;
+    position: relative;
+    background-color: black;
+}
+
+.v3 {
+    height: 20%;
+    width: 20%;
+    position: relative;
+    background-color: black;
+}
+
+.v1:hover ~ .v2, .v3 {
+    position: relative;
+    transform: translate3d(109px, 0px, 0px);
+    background-color: orange;
+}
+    
+
+
+.v1:hover {
+    position: relative;
+    transform: translate3d(345px, 12px, 19px);
+    background-color: green;
+}
+
+
+
+/* .v2:hover {
+    position: relative;
+}
+
+.v3:hover {
+    position: relative;
+}
+
+.v4:hover {
+    position: relative;
+}
+
+.v5:hover {
+    position: relative;
+}
+
+#v1:hover +  {
+    background: #ccc
+} */

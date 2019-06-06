@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import NavBar from '../nav/nav_container'
 import FeaturedVideo from './featured_video'
+import VideoRow from './video_row'
 
 class VideoIndex extends React.Component {
     constructor(props) {
@@ -19,7 +20,12 @@ class VideoIndex extends React.Component {
             <div className="video-index-container">
                 <NavBar/>
                 <FeaturedVideo video={this.props.videos[0]} />
-                <div className="temp">Yoo</div>
+                <VideoRow videos={this.props.videos}/>>
+                <VideoRow videos={this.props.videos} />>
+                <VideoRow videos={this.props.videos} />>
+                <VideoRow videos={this.props.videos} />>
+                <VideoRow videos={this.props.videos} />>
+                <VideoRow videos={this.props.videos} />>
             </div>
 
 
@@ -28,3 +34,4 @@ class VideoIndex extends React.Component {
 }
 
 export default VideoIndex;
+
