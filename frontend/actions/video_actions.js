@@ -14,11 +14,16 @@ const receiveVideo = (video) => ({
     video
 })
 
-export const fetchVideos = (category) => dispatch => (VideoApiUtil.fetchVideos(category).then(videos => dispatch(receiveVideos(videos))));
+
+export const fetchVideos = () => dispatch => {
+    return VideoAPIUtil.fetchVideos().then(videos => {
+        dispatch(receiveVideos(videos));
+    })
+}
+
+
 export const fetchVideo = (id) => dispatch => {
-    debugger
     return VideoAPIUtil.fetchVideo(id).then(video => {
-        debugger
         dispatch(receiveVideo(video));
     })
 }

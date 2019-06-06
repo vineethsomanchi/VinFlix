@@ -1,12 +1,17 @@
 import { connect } from 'react-redux';
 import VideoIndex from './video_index';
-import { logout } from '../../actions/session_actions';
+
+import { fetchVideos } from '../../actions/video_actions'
 
 
-const mdp = (dispatch) => {
-    return {
-        logout: () => dispatch(logout()),
-    };
-};
+const msp = (state) => ({
+    videos: Object.values(state.entities.videos)
+})
 
-export default connect(null, mdp)(VideoIndex);
+const mdp = (dispatch) => ({
+    fetchVideos: () => dispatch(fetchVideos())
+})
+
+
+
+export default connect(msp, mdp)(VideoIndex);

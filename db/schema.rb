@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_205052) do
+ActiveRecord::Schema.define(version: 2019_06_05_154050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2019_06_03_205052) do
     t.string "maturity_rating", null: false
     t.string "runtime", null: false
     t.text "description", null: false
-    t.boolean "my_list", null: false
     t.string "director"
     t.string "cast"
     t.string "writer"

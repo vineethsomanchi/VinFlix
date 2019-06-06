@@ -3,16 +3,17 @@ class Api::VideosController < ApplicationController
     
     def index
         @videos = Video.all
-        render :index
     end 
 
     def show
         @video = Video.find(params[:id])
-        debugger
+        # @video = Video.with_attached_movie.find(params[:id])
         render :show
     end
+
+    # private
+    # def video_params
+    #     params.require(:video).permit(:id, thumbnail: [], movie: [])
+    # end
 end
 
-
-
-# @videos = Video.where("title ILIKE ?", "%#{params[:title]}%")

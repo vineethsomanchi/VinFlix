@@ -10,6 +10,7 @@
     -webkit-transition: background-color 500ms linear;
     -ms-transition: background-color 500ms linear;
     transition: background-color 500ms linear;
+    z-index: 4;
 }
 
 .nav-container-transparent {
@@ -24,6 +25,7 @@
     -webkit-transition: background-color 500ms linear;
     -ms-transition: background-color 500ms linear;
     transition: background-color 500ms linear;
+    z-index: 4;
 }
 
 .left-nav {

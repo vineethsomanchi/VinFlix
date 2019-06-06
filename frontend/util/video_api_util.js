@@ -1,13 +1,11 @@
-export const fetchVideos = (category) => (
+export const fetchVideos = () => (
     $.ajax({
         method: "GET",
         url: `api/videos`,
-        data: category
     })
 );
 
 export const fetchVideo = (id) => {
-    debugger
     return $.ajax({
         method: "GET",
         url: `api/videos/${id}`
