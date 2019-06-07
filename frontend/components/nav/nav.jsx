@@ -11,7 +11,7 @@ class NavBar extends React.Component {
     
     componentDidMount() {
         window.onscroll = () => {
-            if (window.pageYOffset <= 20) {
+            if (window.pageYOffset <= 10) {
                 this.setState({top: false})
             } else {
                 this.setState({top: true})
@@ -22,6 +22,7 @@ class NavBar extends React.Component {
     componentWillUnmount() {
         window.onscroll = null;
     }
+
 
     render () {
 
@@ -41,12 +42,12 @@ class NavBar extends React.Component {
                         <Link to="/my-list" className="browse-links-lists">My List</Link>
                     </div>    
                 </div>
-
+        
                 <div className="right-nav">
                     <i className="fas fa-search fa-3x"></i>
                     <a href="https://dvd.netflix.com/Plans" className="dvd">DVD</a>
                     <i className="fas fa-bell fa-3x"></i>
-                    <img src={window.icon} className="nav-icon" onClick={this.props.logout}/>
+                    <img src={window.icon} className="nav-icon" onClick={this.props.logout} />
                 </div>
 
             </nav>
