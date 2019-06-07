@@ -4,16 +4,34 @@ import { Link } from "react-router-dom";
 class FeaturedVideo extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { volume: 1 }
+        this.state = { volume: 1}
         this.volumeToggle = this.volumeToggle.bind(this)
     }
 
+    componentDidMount() {
+        let featured = document.getElementById('featured')
+        window.onscroll = () => {
+            if (window.pageYOffset > 300) {
+                featured.muted = true;
+                featured.pause()
+                this.setState({ volume: 0 });      
+            } else if (window.pageYOffset === 0) {
+                featured.muted = false;
+                featured.play()
+                this.setState({ volume: 1 });
+            }
+        };
+    }
+
+    componentWillUnmount() {
+        window.onscroll = null;
+    }
     
     volumeToggle() {
 
         let featured = document.getElementById('featured')
         if (featured.muted) {
-           featured.muted = false;
+            featured.muted = false;
             this.setState( { volume: 1 } );
         } else {
             featured.muted = true;
