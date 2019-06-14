@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom';
+import Footer from '../footer';
 
 class Splash extends React.Component {
     constructor(props) {
@@ -17,10 +18,9 @@ class Splash extends React.Component {
         return (
             <div className="splash-main">
                 <div className="splash-container"> 
-                    <div className="splash-header">
-                        <Link to="/"><img src={window.logo} className="splash-logo"/></Link>
-
-                        <Link to="/login"><button className="splash-signin">Sign In</button></Link>   
+                    <div className="splash-header-container">     
+                        <img src={window.logo} className="splash-logo" />
+                        <Link to="/login"><button className="splash-signin">Sign In</button></Link> 
                     </div>
 
                     <h1 className="title1">See what’s next.</h1>
@@ -36,25 +36,9 @@ class Splash extends React.Component {
                         
                         <Link to="/login" className="bottom-signin"><label>Sign In</label></Link>
                     </div>
-
-                    <div className="splash-footer-container">
-                        <div className="splash-content">
-                            <div className="splash-header-container">
-                                <label className="splash-footer-header">Questions? Email VineethSomanchi@gmail.com</label>
-                            </div>
-
-                            <div className="splash-icon-container">
-                                <a href="https://www.linkedin.com/in/vineethsomanchi/"><i className="fab fa-linkedin fa-5x"></i></a>
-                                <a href="https://github.com/vineethsomanchi"><i className="fab fa-github fa-5x"></i></a>
-                                <a href="https://twitter.com/vineethsomanchi"><i className="fab fa-twitter fa-5x"></i></a>
-                            </div>
-
-                            <div className="splash-end-container">
-                                <label className="splash-copyright">Recreation by Vineeth Somanchi ©</label>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+
+                <Footer />
             </div>
         )
     }
