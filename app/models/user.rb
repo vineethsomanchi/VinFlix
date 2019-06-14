@@ -17,8 +17,9 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i, on: :create } #Uses regex to validate email format
 
   attr_reader :password
-
   after_initialize :ensure_session_token
+
+  has_many :profiles
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

@@ -8,7 +8,6 @@
 #  maturity_rating :string           not null
 #  runtime         :string           not null
 #  description     :text             not null
-#  my_list         :boolean          not null
 #  director        :string
 #  cast            :string
 #  writer          :string

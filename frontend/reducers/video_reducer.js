@@ -1,4 +1,4 @@
-import { RECEIVE_VIDEO, RECEIVE_VIDEOS } from '../actions/video_actions';
+import { RECEIVE_VIDEOS, RECEIVE_VIDEO } from '../actions/video_actions';
 import { merge } from 'lodash';
 
 

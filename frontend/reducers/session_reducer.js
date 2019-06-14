@@ -1,5 +1,6 @@
-import {RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS, LOGOUT_CURRENT_USER} from '../actions/session_actions';
 import { merge } from 'lodash';
+import {RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER} from '../actions/session_actions';
+
 
 
 //Default user/state is null 
