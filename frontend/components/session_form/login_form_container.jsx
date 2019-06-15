@@ -24,6 +24,8 @@ const mdp = dispatch => {
             <label>New to Netflix?  </label>
         ),
 
+        demoLogin: (user) => dispatch(login(user)),
+
         deleteErrors: () => dispatch(deleteErrors())
     };
 };

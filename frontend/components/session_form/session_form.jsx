@@ -7,13 +7,48 @@ class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {email: "", password: "", passwordErrors: "", emailErrors: ""};
+        
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
+        this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
+        this.demo = this.demo.bind(this)
     }
 
     componentDidMount() {
         this.props.deleteErrors();
     }
+
+    //Handles demo login button
+    handleDemoSubmit(e) {
+        e.preventDefault();
+        
+        this.setState({ email: "", password: "", passwordErrors: "", emailErrors: "" });
+        document.getElementById("email").className = "input-focused";
+        document.getElementById("email-input-label").className = "label-focused";
+        document.getElementById("password").className = "input-focused";
+        document.getElementById("password-input-label").className = "label-focused";
+
+        let demoEmail = 'demo@appacademy.io'.split("");
+        let demoPassword = 'demo'.split("");
+        this.setState({
+            email: this.state.email,
+            password: this.state.password,
+        }, () => this.demo(demoEmail, demoPassword));
+    }
+
+    //Simulates typing for demo login
+    demo(email, password) {
+        if (email.length > 0) {
+            this.setState({ email: this.state.email += email.shift() },
+                () => window.setTimeout(() => this.demo(email, password), 60));
+        } else if (password.length > 0) {
+            this.setState({ password: this.state.password += password.shift() },
+                () => window.setTimeout(() => this.demo(email, password), 70));
+        } else if (email.length === 0 && password.length === 0) {
+            this.props.demoLogin(this.state);
+        }
+    }
+
 
     //Adds errors to state if they exist
     update(field) {
@@ -44,6 +79,23 @@ class SessionForm extends React.Component {
             
             //Changes state for any non-error inputs
             this.setState( {[field]: e.target.value} )
+
+            //Float label if user is typing
+            if(this.state.email.length > 0) {
+                document.getElementById("email").className = "input-focused";
+                document.getElementById("email-input-label").className = "label-focused";
+            } else {
+                document.getElementById("email").className = "input";
+                document.getElementById("email-input-label").className = "label";
+            }
+            
+            if (this.state.password.length > 0) {
+                document.getElementById("password").className = "input-focused";
+                document.getElementById("password-input-label").className = "label-focused";
+            } else {
+                document.getElementById("password").className = "input";
+                document.getElementById("password-input-label").className = "label";
+            } 
         }
     }
 
@@ -83,46 +135,46 @@ class SessionForm extends React.Component {
                 <div className = "session-container">
                     <div className="session-header">
                         <Link to="/"><img src={window.logo} className="session-logo" /></Link>
+                        <input type="submit" onClick={this.handleDemoSubmit} value='Demo' className="session-demo-login"/>
                     </div>
 
                     <div className="session-body">
                         <div className="form-content">
 
-
-                            <h1>{this.props.formType}</h1>
-
-
                             <form className="actual-form">
+
+                                <h1>{this.props.formType}</h1>
 
                                 {renderErrors}
 
                                 <div id="inputContainer" className={emailClass}>
                                     <input id="email" type="text" value={this.state.email} onChange={this.update('email')} className="input"/>
-                                    <label htmlFor="email" className="label">Email or phone number</label>
+                                    <label htmlFor="email" id="email-input-label" className="label">Email or phone number</label>
                                 </div>
                                 <div className="form-errors">{this.state.emailErrors}</div>
                                 
                                 <div id="inputContainer" className={passwordClass}>
                                     <input id="password" type="password" value={this.state.password} onChange={this.update('password')} className="input"/>
-                                    <label htmlFor="password" className="label">Password</label>
+                                    <label htmlFor="password" id="password-input-label" className="label">Password</label>
                                 </div>
                                 <div className="form-errors">{this.state.passwordErrors}</div>
 
                                 <button className="session-button" onClick={this.handleSubmit}>{this.props.formType}</button>
                                 
+                                <div className="form-middle">
+
+                                    <div className="remember">
+                                        <input type="checkbox" className="checkbox" />
+                                        <label className="remember-me"> Remember me</label>
+                                    </div>
+
+                                    <Link to="/" className="need-help"> <label className="need-help">Need help?</label></Link>
+
+                                </div>
                             </form>
                             
 
-                            <div className="form-middle">
-                        
-                                <div className="remember">
-                                    <input type="checkbox" className="checkbox"/>
-                                    <label className="remember-me"> Remember me</label>
-                                </div>
-
-                                <Link to="/" className="need-help"> <label className="need-help">Need help?</label></Link>
-
-                            </div>
+                            
 
 
                             <div className="form-footer">
@@ -135,8 +187,9 @@ class SessionForm extends React.Component {
 
                         </div>
                     </div>
+                    <Footer />
                 </div>
-                <Footer />
+                
             </div>
         );
     }    

@@ -22,14 +22,14 @@
     justify-content: space-between;
     align-items: center;
     height: 98px;
-    width: 97%;
+    width: 100%;
     margin-bottom: 5%;
-    // background-color: #09e526;
 }
 
 .splash-logo {
-    height: 45px;
-    width: 167px;
+    height: 36px;
+    width: 133.2px;
+    margin-left: 55px;
 }
 
 .splash-signin {
@@ -42,6 +42,7 @@
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 7px 17px;
+    margin-right: 55px;
 }
 
 .splash-signin:hover {

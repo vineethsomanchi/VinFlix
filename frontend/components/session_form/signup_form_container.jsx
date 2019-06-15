@@ -19,7 +19,9 @@ const mdp = (dispatch) => ({
         <label>Have an account?</label>
     ),
 
-    deleteErrors: () => dispatch(deleteErrors())
+    deleteErrors: () => dispatch(deleteErrors()),
+
+    demoLogin: (user) => dispatch(login(user))
 })
 
 export default connect(msp, mdp)(SessionForm);
