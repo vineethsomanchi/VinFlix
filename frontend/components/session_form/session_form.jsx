@@ -18,11 +18,16 @@ class SessionForm extends React.Component {
         this.props.deleteErrors();
     }
 
+    //Reset State
+    reset() {
+        this.setState({ email: "", password: "", passwordErrors: "", emailErrors: "" })
+    }
+
+
     //Handles demo login button
     handleDemoSubmit(e) {
         e.preventDefault();
         
-        this.setState({ email: "", password: "", passwordErrors: "", emailErrors: "" });
         document.getElementById("email").className = "input-focused";
         document.getElementById("email-input-label").className = "label-focused";
         document.getElementById("password").className = "input-focused";
