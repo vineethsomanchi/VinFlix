@@ -46,6 +46,16 @@
     font-family: Arial, Helvetica, sans-serif;
     padding: 7px 17px;
     margin-right: 54px;
+
+    -webkit-animation-name: session-accent;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes session-accent {
+  from { background-color: #9a0202; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #ec1e1e; -webkit-box-shadow: 0 0 18px #bd0909; }
+  to { background-color: #9a0202; -webkit-box-shadow: 0 0 9px #333; }
 }
 
 .session-demo-login:hover {

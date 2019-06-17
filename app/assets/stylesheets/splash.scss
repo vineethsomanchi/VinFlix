@@ -96,6 +96,16 @@
     align-content: center;
     border: 0;
     margin-bottom: 30px;
+    
+    -webkit-animation-name: splash-accent;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes splash-accent {
+  from { background-color: #9a0202; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #ec1e1e; -webkit-box-shadow: 0 0 18px #bd0909; }
+  to { background-color: #9a0202; -webkit-box-shadow: 0 0 9px #333; }
 }
 
 .demo:hover {
