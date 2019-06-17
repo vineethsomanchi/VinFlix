@@ -9,22 +9,19 @@ class FeaturedVideo extends React.Component {
     }
 
     componentDidMount() {
+
         let featured = document.getElementById('featured')
-        window.onscroll = () => {
-            if (window.pageYOffset > 300) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
                 featured.muted = true;
-                featured.pause()
-                this.setState({ volume: 0 });      
-            } else if (window.pageYOffset === 0) {
+                featured.pause();
+                this.setState({ volume: 0 })
+            } else if (window.scrollY === 0) {
                 featured.muted = false;
                 featured.play()
                 this.setState({ volume: 1 });
             }
-        };
-    }
-
-    componentWillUnmount() {
-        window.onscroll = null;
+        });
     }
     
     volumeToggle() {
@@ -43,9 +40,9 @@ class FeaturedVideo extends React.Component {
 
         let chooseButton;
         if(this.state.volume === 0) {
-            chooseButton = <i className="fas fa-volume-up fa-1x"></i>
-        } else if(this.state.volume === 1) {
             chooseButton = <i className="fas fa-volume-mute fa-1x"></i>
+        } else if(this.state.volume === 1) {
+            chooseButton = <i className="fas fa-volume-up fa-1x"></i>
         }
 
         
