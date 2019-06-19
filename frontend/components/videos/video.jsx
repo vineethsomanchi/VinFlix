@@ -49,6 +49,8 @@ class Video extends React.Component {
         
         return (
 
+            
+
             <div className={this.props.vidNum} >
                 <video id={this.props.video.id} className="individual-video" 
                     src={this.props.video.video_link} poster={this.props.video.image_link}
