@@ -33,13 +33,16 @@
     width: 14%;
     font-size: 1.4em;
     margin-left: 3%;
-    margin-top: 3%
+    margin-top: 3%;
+    cursor: pointer;
+    transition: opacity 0.4s ease-in-out;  
 }
 
 .fa-arrow-left {
     color: white;
     font-size: 1.8em;
     transition: font-size 0.15s ease-in-out;
+    cursor: pointer;
 }
 
 
@@ -50,6 +53,259 @@
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 18px;
     transition: opacity 0.15s ease-in-out;
+    cursor: pointer;
 }
 
-   
+.video-rating-idle-popup {
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    top: 0;
+    left: 0;
+    margin-left: 3%;
+    margin-top: 6%;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.idle-rating-redbar {
+    background-color: red;
+    width: 0.5px;
+    height: 35px;
+    margin-right: 5px;
+}
+
+.idle-rating {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    letter-spacing: 0.4px;
+}
+
+.video-info-idle-popup {
+    opacity: 0;
+    position: absolute;
+    height: 35%;
+    width: 50%;
+    left: 11vw;
+    top: 33vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.idle-intro {
+    font-size: 1.6em;
+}
+
+.idle-movie-title {
+    font-size: 4em;
+    font-weight: 900;
+    text-shadow: 1px 1px black;
+}
+
+.idle-subinfo-container{
+    font-size: 1.9em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.subinfo-element {
+    margin-right: 4%;
+}
+
+.idle-description {
+    font-size: 1.5em;
+    line-height: 1.2;
+}
+
+
+.video-player-navigation-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    height: 73px;
+    left: 0;
+    right: 0;
+    bottom: 33px;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.navigation-scroll-bar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+    height: 22px;
+}
+
+.navigation-controls-container {
+    width: 96%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-navigations-controls-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    height: 100%;
+}
+
+.right-navigations-controls-container {
+    width: 15.3%;
+    height: 100%;
+}
+
+.movie-duration {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    color: white;
+    text-shadow: 0.5px 0.5px 0.5px rgba(29, 29, 29, 0.746);
+    opacity: 1.0;
+}
+
+#scroll-bar {
+    height: 5px;
+    width: 95%;
+    background: rgb(69, 69, 69);
+    -webkit-appearance: none;
+    opacity: 1;
+    transition: height 100ms;
+    transition: opacity 200ms;
+    cursor: pointer;
+}
+
+#scroll-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+     height: 1.4vw;
+    width: 1.4vw;
+    border-radius: 50%;
+    background: #e50914;
+    cursor: pointer;
+}
+
+.fa-play {
+    margin-left: 4px;
+    font-size: 23px;
+    color: white;
+    margin-right: 46px;
+    transition: color 300ms;
+    cursor: pointer;
+}
+
+.fa-pause {
+    margin-left: 4px;
+    font-size: 23px;
+    color: white;
+    margin-right: 46px;
+    transition: color 300ms;
+    cursor: pointer;
+}
+
+.reverse-button {
+    height: 36px;
+    margin-right: 32px;
+    cursor: pointer;
+}
+
+.forward-button {
+    height: 36px;
+    margin-right: 34px;
+    cursor: pointer;
+}
+
+.vol {
+    font-size: 29px;
+    margin-right: 29px;
+    cursor: pointer;
+}
+
+.voltwo {
+    font-size: 29px;
+    margin-right: 29px;
+    cursor: pointer;
+    color: white;
+}
+
+.movie-title {
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-weight: 500;
+}
+
+#volume-bar {
+    display: none;
+    border: 0.8vw solid #252525;
+    border-radius: 6px;
+    position: absolute;
+    left: 14.4vw;
+    bottom: 8vw;
+    height: 0.6vw;
+    color: white;
+    width: 8.7vw;
+    -webkit-appearance: none;
+    transform: rotate(270deg);
+    background: red;
+    cursor: pointer;
+}
+
+#volume-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+     height: 1.4vw;
+    width: 1.4vw;
+    border-radius: 50%;
+    background: #e50914;
+    cursor: pointer;
+}
+
+.right-navigations-controls-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    height: 100%;
+}
+
+.fa-question-circle {
+    color: white;
+    font-size: 31px;
+    margin-right: 38px;
+    cursor: pointer;
+}
+
+.subtitles-button {
+    height: 35px;
+    margin-right: 38px;
+    cursor: pointer;
+}
+
+.fa-compress {
+    color: white;
+    font-size: 31px;
+    margin-right: 4px;
+    transition: color 300ms;
+    cursor: pointer;
+}
+
+
+
+
