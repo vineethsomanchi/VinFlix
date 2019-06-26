@@ -11,7 +11,8 @@ class VideoPlayer extends React.Component {
             seek: 0,
             duration: null
         };
-        
+
+
         this.togglePlay = this.togglePlay.bind(this);
         this.toggleFullScreen = this.toggleFullScreen.bind(this);
         this.toggleMute = this.toggleMute.bind(this);
@@ -24,11 +25,11 @@ class VideoPlayer extends React.Component {
     
     componentDidMount() {
 
+        this.props.fetchVideo(this.props.match.params.videoId)
+
         this.seekCheck = setInterval(this.updateSeek, 1000);
         this.timeCheck = setInterval(this.updateTime, 1000);
-
-        //Fetch video and set state
-        this.props.fetchVideo(this.props.match.params.videoId)
+        
         const videoPlayerNavigationContainer = document.getElementById("video-player-navigation-container");
         const idlePopup = document.getElementById("video-info-idle-popup");
         const idleRatingPopup = document.getElementById("video-rating-idle-popup")
@@ -81,47 +82,29 @@ class VideoPlayer extends React.Component {
             }
         })
 
-        backButton.addEventListener("mouseover", () => {
+        const showBack = () => {
             backButtonText.style.opacity = "1.0";
             backButton.style.fontSize = "2.1em";
             playButton.style.color = "grey";
             screenToggleButton.style.color = "grey";
-        })
+        }
 
-        backButton.addEventListener("mouseout", () => {
+        const hideBack = () => {
             backButtonText.style.opacity = "0.0";
             backButton.style.fontSize = "1.8em";
             playButton.style.color = "white";
             screenToggleButton.style.color = "white";
-        })
+        }
 
-        backButtonText.addEventListener("mouseover", () => {
-            backButtonText.style.opacity = "1.0";
-            backButton.style.fontSize = "2.1em";
-            playButton.style.color = "grey";
-            screenToggleButton.style.color = "grey";
-        })
+        backButton.addEventListener("mouseover", showBack)
+        backButton.addEventListener("mouseout", hideBack)
 
-        backButtonText.addEventListener("mouseout", () => {
-            backButtonText.style.opacity = "0.0";
-            backButton.style.fontSize = "1.8em";
-            playButton.style.color = "white";
-            screenToggleButton.style.color = "white";
-        })
+        backButtonText.addEventListener("mouseover", showBack)
+        backButtonText.addEventListener("mouseout", hideBack)
         
-        backButtonContainer.addEventListener("mouseover", () => {
-            backButtonText.style.opacity = "1.0";
-            backButton.style.fontSize = "2.1em";
-            playButton.style.color = "grey";
-            screenToggleButton.style.color = "grey";
-        })
+        backButtonContainer.addEventListener("mouseover", showBack)
+        backButtonContainer.addEventListener("mouseout", hideBack)
 
-        backButtonContainer.addEventListener("mouseout", () => {
-            backButtonText.style.opacity = "0.0";
-            backButton.style.fontSize = "1.8em";
-            playButton.style.color = "white";
-            screenToggleButton.style.color = "white";
-        })
 
         scrollBar.addEventListener("mouseover", () => {
             scrollBar.style.height = "8px";
@@ -170,7 +153,6 @@ class VideoPlayer extends React.Component {
         })
 
         let volumeToggleTimer;
-
         volumeButton.addEventListener("mouseout", () => {
             volumeToggleTimer = setTimeout(() => {
                 volumeBar.style.display = "none";
@@ -245,19 +227,12 @@ class VideoPlayer extends React.Component {
             screenToggleButton.style.transform = "scale(1.0)";
             playButton.style.color = "white";
         })
-
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.videoId !== prevProps.match.params.videoId) {
             this.props.fetchVideo(this.props.match.params.videoId);
         }
-    }
-
-    componentWillUnmount() {
-
-        clearInterval(this.seekCheck) 
-        clearInterval(this.timeCheck)
     }
 
     togglePlay() {

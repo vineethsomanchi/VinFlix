@@ -24,28 +24,27 @@ class VideoIndex extends React.Component {
 
         
         for(let i = 0; i < this.props.videos.length; i++) {
-            if(i < 5) {
+            if(i <= 5) {
                 setOne.push(this.props.videos[i])
-            } else if(i < 10) {
+            } else if(i >= 5 && i <= 11) {
                 setTwo.push(this.props.videos[i])
-            } else if(i < 15) {
+            } else if(i >= 10 && i <= 17) {
                 setThree.push(this.props.videos[i])
-            } else {
-                setFour.push(this.props.videos[i])
             }
-        }
-
+        } 
 
         return (
-            <div className="video-index-container">
+            <>
                 <NavBar/>
                 <FeaturedVideo video={this.props.videos[0]} />
-                <VideoRow videos={setOne} header="Superheroes"/>
-                <VideoRow videos={setTwo} header="Anime"/>
-                <VideoRow videos={setThree} header="Because you watched Quentin Tarantino" />
-                <VideoRow videos={setFour} header="Leonardo DiCaprio"/>
-                {/* <VideoRow videos={this.props.videos} header="Comedies"/> */}
-            </div>
+                <div className="video-row-main">
+                    <VideoRow rowNum="r1 individual-row" videos={setOne} header="Superheroes" />
+                    {/* <VideoRow rowNum="r2 individual-row" videos={setTwo} header="Anime"/>
+                    <VideoRow rowNum="r3 individual-row" videos={setThree} header="Because you watched Quentin Tarantino" /> */}
+                    {/* <VideoRow videos={setFour} header="Leonardo DiCaprio"/> */}
+                    {/* <VideoRow videos={this.props.videos} header="Comedies"/> */}
+                </div>
+            </>
 
 
         )

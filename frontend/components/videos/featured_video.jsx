@@ -6,22 +6,28 @@ class FeaturedVideo extends React.Component {
         super(props)
         this.state = { volume: 1}
         this.volumeToggle = this.volumeToggle.bind(this)
+
+        this.handleFeatured = this.handleFeatured.bind(this);
+    }
+
+    handleFeatured () {
+        if (window.scrollY > 100) {
+            featured.muted = true;
+            featured.pause();
+            this.setState({ volume: 0 })
+        } else if (window.scrollY === 0) {
+            featured.muted = false;
+            featured.play()
+            this.setState({ volume: 1 });
+        }
     }
 
     componentDidMount() {
+        window.addEventListener("scroll", this.handleFeatured);
+    }
 
-        let featured = document.getElementById('featured')
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
-                featured.muted = true;
-                featured.pause();
-                this.setState({ volume: 0 })
-            } else if (window.scrollY === 0) {
-                featured.muted = false;
-                featured.play()
-                this.setState({ volume: 1 });
-            }
-        });
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.handleFeatured);
     }
     
     volumeToggle() {
@@ -38,6 +44,8 @@ class FeaturedVideo extends React.Component {
         
     render() {
 
+        const featuredVidLink = (this.props.video ? this.props.video.video_link : null)
+
         let chooseButton;
         if(this.state.volume === 0) {
             chooseButton = <i className="fas fa-volume-mute fa-1x"></i>
@@ -49,14 +57,14 @@ class FeaturedVideo extends React.Component {
         return (
             <div className="featured-video-container">
                 
-                <video id="featured" className="featured-video" src={this.props.video.video_link} loop autoPlay ></video>
+                <video id="featured" className="featured-video" src={featuredVidLink} loop autoPlay ></video>
                 
                 
                 <div className="left-featured-container">
                     <img src={window.avengers_wordart} className="avengers-wordart" />
                     
                     <div className="featured-buttons">
-                        <div className="actual-buttons"><Link to={`/watch/${this.props.video.id}`}>▶ Play</Link></div>
+                        <Link className="actual-buttons" to={`/watch/${this.props.video.id}`}>▶ Play</Link>
                         <button className="actual-buttons">+ My List</button>
                     </div>
                 </div>

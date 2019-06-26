@@ -1,14 +1,18 @@
 html {
     background-color: rgb(20, 20, 20);
+    overflow-x: hidden;
 }
 
-
-
-
 .video-index-container {
-    position: absolute;
     height: 100%;
     width: 100%;
+}
+
+.video-row-main {
+    direction: rtl;
+    top: 88%;
+    width: auto;
+    position: absolute;
 }
 
 

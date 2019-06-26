@@ -201,7 +201,7 @@
     cursor: pointer;
 }
 
-.fa-play {
+#nav-controls-play-button {
     margin-left: 4px;
     font-size: 23px;
     color: white;

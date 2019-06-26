@@ -11,16 +11,15 @@ class NavBar extends React.Component {
     
     componentDidMount() {
         
-        window.addEventListener("scroll", () => {
+        const navToggle = () => {
             if (window.scrollY > 1) {
                 this.setState({ top: true })
             } else {
                 this.setState({ top: false })
             }
-        });
+        }
 
-        const searchButton = document.getElementById("search-button")
-        searchButton.addEventListener("click", () => {
+        const showSearch = () => {
             document.getElementById('right-nav-container').style.width = "38%";
             document.getElementById('search-container').style.width = "270px";
             document.getElementById('search-container').style.background = "#000000";
@@ -28,86 +27,126 @@ class NavBar extends React.Component {
             document.getElementById('nav-search-input').style.display = "block";
             document.getElementById('nav-search-input').style.fontSize = "14px";
             document.getElementById('nav-search-input').focus();
-        })
+        }
 
-        const searchInput = document.getElementById("nav-search-input")
-        searchInput.addEventListener("blur", () => {
+        const hideSearch = () => {
             document.getElementById('right-nav-container').style.width = "17%";
             document.getElementById('search-container').style.width = "25px";
             document.getElementById('search-container').style.background = "none";
             document.getElementById('search-container').style.border = "none";
             document.getElementById('nav-search-input').style.display = "none";
             document.getElementById('nav-search-input').style.fontSize = "0px";
-        })
+        }
+
+        const showDropDown = () => {
+            document.getElementById("carrot-container").style.display = "flex";
+            document.getElementById("up-carrot").style.display = "block";
+            document.getElementById("dropdown").style.display = "block";
+        }
+
+        const hideDropDown = () => {
+            document.getElementById("carrot-container").style.display = "none";
+            document.getElementById("up-carrot").style.display = "none";
+            document.getElementById("dropdown").style.display = "none";
+        }
+
+        window.addEventListener("scroll", navToggle);
+
+        const searchButton = document.getElementById("search-button")
+        searchButton.addEventListener("click", showSearch)
+
+        const searchInput = document.getElementById("nav-search-input")
+        searchInput.addEventListener("blur", hideSearch)
 
         const dropdownIcon = document.getElementById("dropdown-trigger");
-        dropdownIcon.addEventListener("mouseover", () => {
-            document.getElementById("carrot-container").style.display = "flex";
-            document.getElementById("up-carrot").style.display = "block";
-            document.getElementById("dropdown").style.display = "block";
-        })
-
-        dropdownIcon.addEventListener("mouseout", () => {
-            document.getElementById("carrot-container").style.display = "none";
-            document.getElementById("up-carrot").style.display = "none";
-            document.getElementById("dropdown").style.display = "none";
-        })
+        dropdownIcon.addEventListener("mouseover", showDropDown)
+        dropdownIcon.addEventListener("mouseout", hideDropDown)
 
         const dropdownCarrot = document.getElementById("down-carrot");
-        dropdownCarrot.addEventListener("mouseover", () => {
-            document.getElementById("carrot-container").style.display = "flex";
-            document.getElementById("up-carrot").style.display = "block";
-            document.getElementById("dropdown").style.display = "block";
-        })
-
-        dropdownCarrot.addEventListener("mouseout", () => {
-            document.getElementById("carrot-container").style.display = "none";
-            document.getElementById("up-carrot").style.display = "none";
-            document.getElementById("dropdown").style.display = "none";
-        })
+        dropdownCarrot.addEventListener("mouseover", showDropDown)
+        dropdownCarrot.addEventListener("mouseout", hideDropDown)
 
         const downCarrotContainer = document.getElementById("carrot-container");
-        downCarrotContainer.addEventListener("mouseover", () => {
-            document.getElementById("carrot-container").style.display = "flex";
-            document.getElementById("up-carrot").style.display = "block";
-            document.getElementById("dropdown").style.display = "block";
-        })
-
-        downCarrotContainer.addEventListener("mouseout", () => {
-            document.getElementById("carrot-container").style.display = "none";
-            document.getElementById("up-carrot").style.display = "none";
-            document.getElementById("dropdown").style.display = "none";
-        })
+        downCarrotContainer.addEventListener("mouseover", showDropDown)
+        downCarrotContainer.addEventListener("mouseout", hideDropDown)
 
         const upCarrot = document.getElementById("up-carrot");
-        upCarrot.addEventListener("mouseover", () => {
-            document.getElementById("carrot-container").style.display = "flex";
-            document.getElementById("up-carrot").style.display = "block";
-            document.getElementById("dropdown").style.display = "block";
-        })
-
-        upCarrot.addEventListener("mouseout", () => {
-            document.getElementById("carrot-container").style.display = "none";
-            document.getElementById("up-carrot").style.display = "none";
-            document.getElementById("dropdown").style.display = "none";
-        })
+        upCarrot.addEventListener("mouseover", showDropDown)
+        upCarrot.addEventListener("mouseout", hideDropDown)
 
         const dropdown = document.getElementById("dropdown");
-        dropdown.addEventListener("mouseover", () => {
+        dropdown.addEventListener("mouseover", showDropDown)
+        dropdown.addEventListener("mouseout", hideDropDown)
+    }
+
+    componentWillUnmount () {
+        const navToggle = () => {
+            if (window.scrollY > 1) {
+                this.setState({ top: true })
+            } else {
+                this.setState({ top: false })
+            }
+        }
+
+        const showSearch = () => {
+            document.getElementById('right-nav-container').style.width = "38%";
+            document.getElementById('search-container').style.width = "270px";
+            document.getElementById('search-container').style.background = "#000000";
+            document.getElementById('search-container').style.border = "solid 1px white";
+            document.getElementById('nav-search-input').style.display = "block";
+            document.getElementById('nav-search-input').style.fontSize = "14px";
+            document.getElementById('nav-search-input').focus();
+        }
+
+        const hideSearch = () => {
+            document.getElementById('right-nav-container').style.width = "17%";
+            document.getElementById('search-container').style.width = "25px";
+            document.getElementById('search-container').style.background = "none";
+            document.getElementById('search-container').style.border = "none";
+            document.getElementById('nav-search-input').style.display = "none";
+            document.getElementById('nav-search-input').style.fontSize = "0px";
+        }
+
+        const showDropDown = () => {
             document.getElementById("carrot-container").style.display = "flex";
             document.getElementById("up-carrot").style.display = "block";
             document.getElementById("dropdown").style.display = "block";
-        })
+        }
 
-        dropdown.addEventListener("mouseout", () => {
+        const hideDropDown = () => {
             document.getElementById("carrot-container").style.display = "none";
             document.getElementById("up-carrot").style.display = "none";
             document.getElementById("dropdown").style.display = "none";
-        })
+        }
 
+        window.removeEventListener("scroll", navToggle);
+
+        const searchButton = document.getElementById("search-button")
+        searchButton.removeEventListener("click", showSearch)
+
+        const searchInput = document.getElementById("nav-search-input")
+        searchInput.removeEventListener("blur", hideSearch)
+
+        const dropdownIcon = document.getElementById("dropdown-trigger");
+        dropdownIcon.removeEventListener("mouseover", showDropDown)
+        dropdownIcon.removeEventListener("mouseout", hideDropDown)
+
+        const dropdownCarrot = document.getElementById("down-carrot");
+        dropdownCarrot.removeEventListener("mouseover", showDropDown)
+        dropdownCarrot.removeEventListener("mouseout", hideDropDown)
+
+        const downCarrotContainer = document.getElementById("carrot-container");
+        downCarrotContainer.removeEventListener("mouseover", showDropDown)
+        downCarrotContainer.removeEventListener("mouseout", hideDropDown)
+
+        const upCarrot = document.getElementById("up-carrot");
+        upCarrot.removeEventListener("mouseover", showDropDown)
+        upCarrot.removeEventListener("mouseout", hideDropDown)
+
+        const dropdown = document.getElementById("dropdown");
+        dropdown.removeEventListener("mouseover", showDropDown)
+        dropdown.removeEventListener("mouseout", hideDropDown)
     }
-
-
 
     render () {
 
