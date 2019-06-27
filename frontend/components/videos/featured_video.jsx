@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 class FeaturedVideo extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { volume: 1}
-        this.volumeToggle = this.volumeToggle.bind(this)
-
+        this.state = { volume: 1, myList: false}
+        this.volumeToggle = this.volumeToggle.bind(this);
         this.handleFeatured = this.handleFeatured.bind(this);
+        this.myListToggle = this.myListToggle.bind(this);
     }
 
     handleFeatured () {
@@ -24,6 +24,15 @@ class FeaturedVideo extends React.Component {
 
     componentDidMount() {
         window.addEventListener("scroll", this.handleFeatured);
+
+        for (let i = 0; i < this.props.lists.length; i++) {
+            if (this.props.lists[i].id === this.props.video.id) {
+                this.setState({ myList: true })
+                break
+            } else {
+                this.setState({ myList: false })
+            }
+        }
     }
 
     componentWillUnmount() {
@@ -41,6 +50,16 @@ class FeaturedVideo extends React.Component {
             this.setState( { volume: 0 } );
         }
     }
+
+    myListToggle() {
+        if (this.state.myList === true) {
+            this.props.deleteListItem(this.props.video.id)
+            this.setState({ myList: false })
+        } else {
+            this.props.createListItem(this.props.video.id)
+            this.setState({ myList: true })
+        }
+    }
         
     render() {
 
@@ -51,6 +70,13 @@ class FeaturedVideo extends React.Component {
             chooseButton = <i className="fas fa-volume-mute fa-1x"></i>
         } else if(this.state.volume === 1) {
             chooseButton = <i className="fas fa-volume-up fa-1x"></i>
+        }
+
+        let chooseListButton;
+        if (this.state.myList === true) {      
+            chooseListButton = <button className="actual-buttons" onClick={this.myListToggle}>✓ My List</button>
+        } else {
+            chooseListButton = <button className="actual-buttons" onClick={this.myListToggle}>+ My List</button> 
         }
 
         
@@ -65,7 +91,7 @@ class FeaturedVideo extends React.Component {
                     
                     <div className="featured-buttons">
                         <Link className="actual-buttons" to={`/watch/${this.props.video.id}`}>▶ Play</Link>
-                        <button className="actual-buttons">+ My List</button>
+                        {chooseListButton}
                     </div>
                 </div>
     

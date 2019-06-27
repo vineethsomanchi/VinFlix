@@ -235,6 +235,13 @@ class VideoPlayer extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        clearInterval(this.seekCheck)
+        clearInterval(this.timeCheck)
+
+        
+    }
+
     togglePlay() {
         let actualVideo = document.getElementById("video-player")
         if(this.state.play === true) {

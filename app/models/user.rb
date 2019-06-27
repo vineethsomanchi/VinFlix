@@ -16,8 +16,13 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 4, maximum: 60, allow_nil: true }
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i, on: :create } #Uses regex to validate email format
 
-  attr_reader :password
+  has_many :list,
+  foreign_key: :user_id
 
+  has_many :videos,
+  through: :list
+  
+  attr_reader :password
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(email, password)

@@ -8,7 +8,6 @@
 #  maturity_rating :string           not null
 #  runtime         :string           not null
 #  description     :text             not null
-#  my_list         :boolean          not null
 #  director        :string
 #  cast            :string
 #  writer          :string
@@ -22,4 +21,8 @@ class Video < ApplicationRecord
     validates :title, :year, :maturity_rating, :runtime, :description, presence: true
     has_one_attached :movie
     has_one_attached :thumbnail
+
+    has_many :lists,
+    foreign_key: :video_id,
+    class_name: 'List'
 end

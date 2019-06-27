@@ -1,151 +1,115 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
-
 class NavBar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {top: false}
+
+        this.navToggle = this.navToggle.bind(this)
+        this.showSearch = this.showSearch.bind(this)
+        this.hideSearch = this.hideSearch.bind(this)
+        this.showDropDown = this.showDropDown.bind(this)
+        this.hideDropDown = this.hideDropDown.bind(this)
+    }
+
+    navToggle() {
+        if (window.scrollY > 1) {
+            this.setState({ top: true })
+        } else {
+            this.setState({ top: false })
+        }
+    }
+
+    showSearch() {
+        document.getElementById('right-nav-container').style.width = "38%";
+        document.getElementById('search-container').style.width = "270px";
+        document.getElementById('search-container').style.background = "#000000";
+        document.getElementById('search-container').style.border = "solid 1px white";
+        document.getElementById('nav-search-input').style.display = "block";
+        document.getElementById('nav-search-input').style.fontSize = "14px";
+        document.getElementById('nav-search-input').focus();
+    }
+
+    hideSearch() {
+        document.getElementById('right-nav-container').style.width = "17%";
+        document.getElementById('search-container').style.width = "25px";
+        document.getElementById('search-container').style.background = "none";
+        document.getElementById('search-container').style.border = "none";
+        document.getElementById('nav-search-input').style.display = "none";
+        document.getElementById('nav-search-input').style.fontSize = "0px";
+    }
+
+    showDropDown() {
+        document.getElementById("carrot-container").style.display = "flex";
+        document.getElementById("up-carrot").style.display = "block";
+        document.getElementById("dropdown").style.display = "block";
+    }
+
+    hideDropDown() {
+        document.getElementById("carrot-container").style.display = "none";
+        document.getElementById("up-carrot").style.display = "none";
+        document.getElementById("dropdown").style.display = "none";
     }
     
     componentDidMount() {
-        
-        const navToggle = () => {
-            if (window.scrollY > 1) {
-                this.setState({ top: true })
-            } else {
-                this.setState({ top: false })
-            }
-        }
-
-        const showSearch = () => {
-            document.getElementById('right-nav-container').style.width = "38%";
-            document.getElementById('search-container').style.width = "270px";
-            document.getElementById('search-container').style.background = "#000000";
-            document.getElementById('search-container').style.border = "solid 1px white";
-            document.getElementById('nav-search-input').style.display = "block";
-            document.getElementById('nav-search-input').style.fontSize = "14px";
-            document.getElementById('nav-search-input').focus();
-        }
-
-        const hideSearch = () => {
-            document.getElementById('right-nav-container').style.width = "17%";
-            document.getElementById('search-container').style.width = "25px";
-            document.getElementById('search-container').style.background = "none";
-            document.getElementById('search-container').style.border = "none";
-            document.getElementById('nav-search-input').style.display = "none";
-            document.getElementById('nav-search-input').style.fontSize = "0px";
-        }
-
-        const showDropDown = () => {
-            document.getElementById("carrot-container").style.display = "flex";
-            document.getElementById("up-carrot").style.display = "block";
-            document.getElementById("dropdown").style.display = "block";
-        }
-
-        const hideDropDown = () => {
-            document.getElementById("carrot-container").style.display = "none";
-            document.getElementById("up-carrot").style.display = "none";
-            document.getElementById("dropdown").style.display = "none";
-        }
-
-        window.addEventListener("scroll", navToggle);
+        window.addEventListener("scroll", this.navToggle);
 
         const searchButton = document.getElementById("search-button")
-        searchButton.addEventListener("click", showSearch)
+        searchButton.addEventListener("click", this.showSearch)
 
         const searchInput = document.getElementById("nav-search-input")
-        searchInput.addEventListener("blur", hideSearch)
+        searchInput.addEventListener("blur", this.hideSearch)
 
         const dropdownIcon = document.getElementById("dropdown-trigger");
-        dropdownIcon.addEventListener("mouseover", showDropDown)
-        dropdownIcon.addEventListener("mouseout", hideDropDown)
+        dropdownIcon.addEventListener("mouseover", this.showDropDown)
+        dropdownIcon.addEventListener("mouseout", this.hideDropDown)
 
         const dropdownCarrot = document.getElementById("down-carrot");
-        dropdownCarrot.addEventListener("mouseover", showDropDown)
-        dropdownCarrot.addEventListener("mouseout", hideDropDown)
+        dropdownCarrot.addEventListener("mouseover", this.showDropDown)
+        dropdownCarrot.addEventListener("mouseout", this.hideDropDown)
 
         const downCarrotContainer = document.getElementById("carrot-container");
-        downCarrotContainer.addEventListener("mouseover", showDropDown)
-        downCarrotContainer.addEventListener("mouseout", hideDropDown)
+        downCarrotContainer.addEventListener("mouseover", this.showDropDown)
+        downCarrotContainer.addEventListener("mouseout", this.hideDropDown)
 
         const upCarrot = document.getElementById("up-carrot");
-        upCarrot.addEventListener("mouseover", showDropDown)
-        upCarrot.addEventListener("mouseout", hideDropDown)
+        upCarrot.addEventListener("mouseover", this.showDropDown)
+        upCarrot.addEventListener("mouseout", this.hideDropDown)
 
         const dropdown = document.getElementById("dropdown");
-        dropdown.addEventListener("mouseover", showDropDown)
-        dropdown.addEventListener("mouseout", hideDropDown)
+        dropdown.addEventListener("mouseover", this.showDropDown)
+        dropdown.addEventListener("mouseout", this.hideDropDown)
     }
 
     componentWillUnmount () {
-        const navToggle = () => {
-            if (window.scrollY > 1) {
-                this.setState({ top: true })
-            } else {
-                this.setState({ top: false })
-            }
-        }
-
-        const showSearch = () => {
-            document.getElementById('right-nav-container').style.width = "38%";
-            document.getElementById('search-container').style.width = "270px";
-            document.getElementById('search-container').style.background = "#000000";
-            document.getElementById('search-container').style.border = "solid 1px white";
-            document.getElementById('nav-search-input').style.display = "block";
-            document.getElementById('nav-search-input').style.fontSize = "14px";
-            document.getElementById('nav-search-input').focus();
-        }
-
-        const hideSearch = () => {
-            document.getElementById('right-nav-container').style.width = "17%";
-            document.getElementById('search-container').style.width = "25px";
-            document.getElementById('search-container').style.background = "none";
-            document.getElementById('search-container').style.border = "none";
-            document.getElementById('nav-search-input').style.display = "none";
-            document.getElementById('nav-search-input').style.fontSize = "0px";
-        }
-
-        const showDropDown = () => {
-            document.getElementById("carrot-container").style.display = "flex";
-            document.getElementById("up-carrot").style.display = "block";
-            document.getElementById("dropdown").style.display = "block";
-        }
-
-        const hideDropDown = () => {
-            document.getElementById("carrot-container").style.display = "none";
-            document.getElementById("up-carrot").style.display = "none";
-            document.getElementById("dropdown").style.display = "none";
-        }
-
-        window.removeEventListener("scroll", navToggle);
+        window.removeEventListener("scroll", this.navToggle);
 
         const searchButton = document.getElementById("search-button")
-        searchButton.removeEventListener("click", showSearch)
+        searchButton.removeEventListener("click", this.showSearch)
 
         const searchInput = document.getElementById("nav-search-input")
-        searchInput.removeEventListener("blur", hideSearch)
+        searchInput.removeEventListener("blur", this.hideSearch)
 
         const dropdownIcon = document.getElementById("dropdown-trigger");
-        dropdownIcon.removeEventListener("mouseover", showDropDown)
-        dropdownIcon.removeEventListener("mouseout", hideDropDown)
+        dropdownIcon.removeEventListener("mouseover", this.showDropDown)
+        dropdownIcon.removeEventListener("mouseout", this.hideDropDown)
 
         const dropdownCarrot = document.getElementById("down-carrot");
-        dropdownCarrot.removeEventListener("mouseover", showDropDown)
-        dropdownCarrot.removeEventListener("mouseout", hideDropDown)
+        dropdownCarrot.removeEventListener("mouseover", this.showDropDown)
+        dropdownCarrot.removeEventListener("mouseout", this.hideDropDown)
 
         const downCarrotContainer = document.getElementById("carrot-container");
-        downCarrotContainer.removeEventListener("mouseover", showDropDown)
-        downCarrotContainer.removeEventListener("mouseout", hideDropDown)
+        downCarrotContainer.removeEventListener("mouseover", this.showDropDown)
+        downCarrotContainer.removeEventListener("mouseout", this.hideDropDown)
 
         const upCarrot = document.getElementById("up-carrot");
-        upCarrot.removeEventListener("mouseover", showDropDown)
-        upCarrot.removeEventListener("mouseout", hideDropDown)
+        upCarrot.removeEventListener("mouseover", this.showDropDown)
+        upCarrot.removeEventListener("mouseout", this.hideDropDown)
 
         const dropdown = document.getElementById("dropdown");
-        dropdown.removeEventListener("mouseover", showDropDown)
-        dropdown.removeEventListener("mouseout", hideDropDown)
+        dropdown.removeEventListener("mouseover", this.showDropDown)
+        dropdown.removeEventListener("mouseout", this.hideDropDown)
     }
 
     render () {
@@ -164,7 +128,7 @@ class NavBar extends React.Component {
                             <Link to="/tv-shows" className="browse-links-shows">TV Shows</Link>
                             <Link to="/movies" className="browse-links-movies">Movies</Link>
                             <Link to="/recently-added" className="browse-links-added">Recently Added</Link>
-                            <Link to="/my-list" className="browse-links-lists">My List</Link>
+                            <Link to={`/my-list/${this.props.currentUser}`} className="browse-links-lists">My List</Link>
                         </div>    
                     </div>
             

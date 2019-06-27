@@ -2,6 +2,9 @@ import NavBar from './nav';
 import { logout } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 
+const msp = (state) => ({
+    currentUser: state.session.id
+})
 
 const mdp = (dispatch) => {
     return {
@@ -9,5 +12,5 @@ const mdp = (dispatch) => {
     };
 };
 
-export default connect(null, mdp)(NavBar);
+export default connect(msp, mdp)(NavBar);
 

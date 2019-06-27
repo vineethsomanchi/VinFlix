@@ -11,6 +11,7 @@
     color: white;
     margin-right: 0.4%;
     transition: 500ms ease-in-out;
+    cursor: pointer;
 }
 
 .individual-video {
@@ -19,13 +20,14 @@
     transition: 500ms ease-in-out;
     position: absolute;
     z-index: 0;
+    cursor: pointer;
 }
 
 .video-logo {
-    margin-top: 4%;
-    margin-left: 3%;
-    height: 8%;
-    width: 19%; 
+    margin-top: 2.5vh;
+    margin-left: 1vw;
+    height: 7%;
+    width: 18%; 
     position: relative;
     z-index: 1;
 }
@@ -39,7 +41,7 @@
     z-index: 1;
     height: 77%;
     width: 100%;
-    pointer-events: none;
+    
 
 }
 
@@ -52,7 +54,7 @@
     z-index: 1;
     width: 50%;
     height: 100%;
-    pointer-events: none;
+    
 }
 
 .right-video-container {
@@ -64,7 +66,7 @@
     z-index: 1;
     width: 50%;
     height: 100%;
-    pointer-events: none;
+    
 }
 
 .bottom-video-container {
@@ -72,7 +74,7 @@
     z-index: 1;
     width: 100%;
     height: 12%;
-    pointer-events: none;
+    
 }
 
 .video-play-button-container {
@@ -85,8 +87,8 @@
     width: 30px;
     height: 30px;
     border: 1px solid white;
-    margin-left: 6%;
-    pointer-events: none;
+    margin-left: 1vw;
+    
 }
 
 #video-ele-play-button {
@@ -94,28 +96,28 @@
     margin-left: 1px;
     margin-top: 1px;
     font-size: 1.1em;
-    pointer-events: auto;
+
 }
 
 
 .video-title {
     font-size: 1.5em;
     font-weight: 500;
-    margin-top: 5%;
-    margin-left: 6%;
-    pointer-events: none;
+    margin-top: 1.5vh;
+    margin-left: 1.2vw;
+    
 }
 
 .video-row-1 {
     font-size: 1.2em;
-    width: 50%;
-    margin-top: 5%;
-    margin-left: 6%;
+    width: 5.5vw;
+    margin-top: 1.5vh;
+    margin-left: 1.2vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    pointer-events: none;
+    
 }
 
 .video-maturity-rating {
@@ -124,7 +126,7 @@
     padding-left: 4px;
     padding-top: 1px;
     padding-bottom: 1px;
-    pointer-events: none;
+    
 }
 
 .video-button-container {
@@ -138,15 +140,15 @@
     width: 25px;
     height: 25px;
     border: 1px solid rgba(206, 206, 206, 0.637);
-    margin-right: 8%;
-    margin-top: 5px;
-    pointer-events: none;
+    margin-right: 1.5vw;
+    margin-top: 0.6vh;
+    
 }
 
 #vidicons {
     font-size: 1.2em;
     cursor: pointer;
-    pointer-events: auto;
+
 }
 
 .video-button-container:hover {

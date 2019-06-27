@@ -7,6 +7,7 @@ import LoginFormContainer from './session_form/login_form_container';
 import SplashContainer from './splash/splash_container';
 import VideoIndex from './videos/video_container';
 import VideoPlayerContainer from './videos/video_player_container';
+import ListContainer from './lists/list_container';
 
 const App = () => (
     <div>
@@ -16,6 +17,7 @@ const App = () => (
             <AuthRoute exact path="/" component={SplashContainer} />
             <ProtectedRoute exact path="/browse" component={VideoIndex} />
             <ProtectedRoute exact path="/watch/:videoId" component={VideoPlayerContainer} />
+            <ProtectedRoute exact path='/my-list/:userId' component={ListContainer} />
         </Switch>
     </div>
 );

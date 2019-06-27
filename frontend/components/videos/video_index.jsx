@@ -12,6 +12,7 @@ class VideoIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchVideos();
+        this.props.fetchListItems();
     }
 
     render() {
@@ -24,25 +25,25 @@ class VideoIndex extends React.Component {
 
         
         for(let i = 0; i < this.props.videos.length; i++) {
-            if(i <= 5) {
+            if(i < 6) {
                 setOne.push(this.props.videos[i])
-            } else if(i >= 5 && i <= 11) {
+            } else if(i > 5 && i < 12) {
                 setTwo.push(this.props.videos[i])
-            } else if(i >= 10 && i <= 17) {
+            } else if(i > 11 && i < 18) {
                 setThree.push(this.props.videos[i])
+            } else if (i > 17 && i < 24) {
+                setFour.push(this.props.videos[i])
             }
         } 
-
         return (
             <>
                 <NavBar/>
-                <FeaturedVideo video={this.props.videos[0]} />
+                <FeaturedVideo video={this.props.videos[5]} createListItem={this.props.createListItem} deleteListItem={this.props.deleteListItem} lists={this.props.lists}/>
                 <div className="video-row-main">
-                    <VideoRow rowNum="r1 individual-row" videos={setOne} header="Superheroes" />
-                    {/* <VideoRow rowNum="r2 individual-row" videos={setTwo} header="Anime"/>
-                    <VideoRow rowNum="r3 individual-row" videos={setThree} header="Because you watched Quentin Tarantino" /> */}
-                    {/* <VideoRow videos={setFour} header="Leonardo DiCaprio"/> */}
-                    {/* <VideoRow videos={this.props.videos} header="Comedies"/> */}
+                    <VideoRow rowNum="r1" videos={setOne} header="Comics" createListItem={this.props.createListItem} deleteListItem={this.props.deleteListItem} lists={this.props.lists}/>
+                    <VideoRow rowNum="r2" videos={setTwo} header="Animated" createListItem={this.props.createListItem} deleteListItem={this.props.deleteListItem} lists={this.props.lists}/>
+                    <VideoRow rowNum="r3" videos={setThree} header="Because you watched Quentin Tarantino" createListItem={this.props.createListItem} deleteListItem={this.props.deleteListItem} lists={this.props.lists}/>
+                    <VideoRow rowNum="r4" videos={setFour} header="Leonardo DiCaprio" createListItem={this.props.createListItem} deleteListItem={this.props.deleteListItem} lists={this.props.lists}/>
                 </div>
             </>
 
