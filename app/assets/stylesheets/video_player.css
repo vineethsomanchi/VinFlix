@@ -30,7 +30,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 10vw;
+    width: 14vw;
     font-size: 1.4em;
     margin-left: 3%;
     margin-top: 3%;
@@ -256,7 +256,7 @@
     border: 0.8vw solid #252525;
     border-radius: 6px;
     position: absolute;
-    left: 8.8vw;
+    left: 14.4vw;
     bottom: 8vw;
     height: 0.6vw;
     color: white;

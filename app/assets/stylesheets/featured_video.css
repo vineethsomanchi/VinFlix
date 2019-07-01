@@ -96,9 +96,9 @@
     justify-content: center;
     align-items: center;
     background: rgba(0,0,0,.7);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
     border: .1em solid rgba(255,255,255,.5);
     font-size: 1.5em;
     transition: transform 350ms cubic-bezier(.86,0,.07,1),-webkit-transform 350ms cubic-bezier(.86,0,.07,1),-moz-transform 350ms cubic-bezier(.86,0,.07,1),-o-transform 350ms cubic-bezier(.86,0,.07,1);
