@@ -1,24 +1,13 @@
-# README
+# VinFlix
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+VinFlix is a pixel-perfect, single-page, recreation of Netflix. The tech stack and relevent tools used in this application are listed below:
 
-Things you may want to cover:
+* **Frontend**: JavaScript ES6, React.js, Redux.js, HTML5, CSS3
+* **Backend**: Ruby on Rails, PostgreSQL, JBuilder
+* **Debugging**: Chrome DevTools, byebug
+* **Hosting**: Amazon Web Services, Heroku
 
-* Ruby version
+Please visit the associated GitHub wiki for additional information relating to MVPs. database schema design, frontend routes, backend routes, and state shape.
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+***
